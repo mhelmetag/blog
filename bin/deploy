@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo -e "\033[0;35mDeploying updates to GitHub...\033[0m"
+
+# build site
+hugo -t coder
+
+# cd into site folder
+cd public
+
+# commit new changes and push
+git add .
+
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
+
+git commit -m "$msg"
+
+git push origin master
+
+# back to top level
+cd ..
