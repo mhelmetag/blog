@@ -1,10 +1,11 @@
 ---
 title: "My First Database Column Rename (aka Renaming Database Columns Safely)"
-date: 2016-03-08T22:55:41-07:00
+date: 2016-03-08T20:00:00-07:00
 draft: false
 ---
 
 ## My Big Break
+
 I had always wanted to break into contributing code and I finally found some low hanging fruit on [Exercism](https://github.com/exercism/exercism.io). I made a small change, got some feedback and "squashed" my commits. Soon after, I wanted a bit larger of a project to work on so I found [this issue](https://github.com/exercism/exercism.io/issues/2501).
 
 The task seemed fairly straightforward:
@@ -17,6 +18,7 @@ So I thought, "Let's make a lot of these changes all at once!" Rename the column
 
 
 ## Uptime
+
 Max (me):
 
 >I changed the column mastery to track mentor, updated some tests and created a migration. All tests passed locally after db:migrate. I think this is a good jump off point. Let me know what you think :)
@@ -31,6 +33,7 @@ Oh, okay... so in other words... let's not do that...
 
 
 ## Production
+
 I never really thought of the word "migration" until I worked on Exercism. I always just thought of it as "change". While that's not wrong, it's also not entirely right (at least not in a production environment).
 
 On my own projects, whenever I make changes I usually nuke my database, run my migrations and reseed. I don't ever think twice about preserving data... see why that won't work in production?
@@ -69,7 +72,8 @@ end
 
 After running that migration and copying the data from one column to the other, I was finally able to make the code changes to reference my newly minted `track_mentor` column!
 
-# So?
+## So?
+
 Well... so nothing. I'm just saying that even the simplest things are usually more complex. After further reading about migrations and hearing about [feature flags](http://martinfowler.com/bliki/FeatureToggle.html), I started thinking about incremental changes in other places throughout the codebase.
 
 It seems like with all the focus on agile and continuous integration, web development is moving in the direction of merging small experiments into production. It definitely makes testing easier by seeing how new changes work in the wild incrementally versus all in one heap (so there's less code to sift through when things break) and real users are some of the best test cases around (no mocking required!).
