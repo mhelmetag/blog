@@ -14,27 +14,27 @@ Just to note, I do pay for premium and would recommend it to any surfers out the
 
 Normally, a surf forecast for a specific region looks like this:
 
-![normal ventura forecast](/normal-ventura-forecast.png)
+![normal ventura forecast](https://s3-us-west-2.amazonaws.com/maxworld-images/normal-ventura-forecast.png)
 
 Basically this page is saying you *could* see the next 17 days of forecast. But, without premium, you can only see the first two.
 
 So... notice how there are green and blue rectangles (denoting the overall surf conditions for the AM and PM of the day) underneath this ad mask?
 
-![ventura forecast mask focus](/ventura-forecast-mask-focus.png)
+![ventura forecast mask focus](https://s3-us-west-2.amazonaws.com/maxworld-images/ventura-forecast-mask-focus.png)
 
 A little weird, huh? But it can't be using actual data, right? That'd be dumb. This *must* be boilerplate/filler data that's used to pad the forecast table.
 
 Maybe if we just hide that ad mask, we can see the underlying data (I just use the Chrome "Hide element" option n the Elements inspector)?
 
-![hide ad mask](/hide-ad-mask.png)
+![hide ad mask](https://s3-us-west-2.amazonaws.com/maxworld-images/hide-ad-mask.png)
 
 Better... but the data still looks blurred... there's definitely real data under there but how do we get it?
 
-![blur css class](/blur-css-class.png)
+![blur css class](https://s3-us-west-2.amazonaws.com/maxworld-images/blur-css-class.png)
 
 And luckily, looking at one of the forecast columns, we can see the some classes on one of the `div`s: `sl-condition-day-summary__body--blurred`. Seems like something we should update to be `sl-condition-day-summary__body`. That would probably remove the blur.
 
-![blur css class removed](/blur-css-class-removed.png)
+![blur css class removed](https://s3-us-west-2.amazonaws.com/maxworld-images/blur-css-class-removed.png)
 
 Aha! This trick allows us to see data for up to six days!
 
@@ -50,7 +50,7 @@ I found that there are five CSS classes that blur each section of a forecast (co
 
 The end result looks like this...
 
-![forecastgenie](/forecastgenie.gif)
+![forecastgenie](https://s3-us-west-2.amazonaws.com/maxworld-images/forecastgenie.gif)
 
 Just a cautionary tale that masks don't actually block information or keep a user from doing or seeing what they shouldn't.
 
