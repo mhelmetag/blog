@@ -6,6 +6,7 @@ canonifyurls = true
 pygmentsstyle = "b2"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
+googleAnalytics = "UA-127419378-1"
 
 [params]
     author = "Max Helmetag"
@@ -17,6 +18,7 @@ pygmentscodefencesguesssyntax = true
     name = "Github"
     weight = 1
     url = "https://github.com/mhelmetag/"
+
 [[params.social]]
     name = "LinkedIn"
     weight = 2
